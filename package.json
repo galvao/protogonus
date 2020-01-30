@@ -1,0 +1,9 @@
+{
+  "name": "protogonus",
+  "version": "0.1.0",
+  "description": "A simple JavaScript timer",
+  "main": "src/protogonus.js",
+  "repository": "git@github.com:galvao/protogonus.git",
+  "author": "Er Galvao Abbott <galvao@galvao.eti.br>",
+  "license": "MIT"
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Testing for Protogonus</title>
+    </head>
+    <body>
+        <button type="button">Start/Stop & query</button>
+        <p></p>
+        <script type="text/javascript" src="../protogonus.js"></script>
+        <script type="text/javascript">
+            clicked = 0;
+
+            document.querySelector('button').addEventListener('click', function () {
+                if ((clicked % 2) === 0) {
+                    try {
+                        obj = new Protogonus('up', 0, 60);
+                        document.querySelector('p').innerText = obj.begin;
+                        obj.start();
+
+                        up = self.setInterval(updateClock.bind(obj), 1000);
+                    } catch (e) {
+                        console.log(e.message);
+                    }
+                } else {
+                    obj.stop();
+                    self.clearInterval(up);
+                    console.log(obj.running);
+                }
+
+                clicked++;
+            });
+
+            function updateClock()
+            {
+                console.log(obj.running);
+                document.querySelector('p').innerText = this.query();
+            }
+        </script>
+    </body>
+</html>
